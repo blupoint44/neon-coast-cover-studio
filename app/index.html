@@ -3,20 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
+<title>Neon Coast Cover Studio</title>
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
+<main class="studio">
+  <aside class="controls" aria-label="Cover controls">
+    <header class="brand">
+      <h1>Neon Coast <span>Cover Studio</span></h1>
+      <p>Your photos, a palm-county sunset, poster lettering — exported as a cover PNG.</p>
+    </header>
+
+    <section class="control-group" aria-labelledby="photos-heading">
+      <h2 id="photos-heading">Photos</h2>
+      <div id="drop-zone" class="drop-zone">
+        <label class="file-picker">Add your photos
+          <input id="photo-file-input" type="file" accept="image/*" multiple>
+        </label>
+        <p>or drop image files here — they stay on this machine</p>
+      </div>
+      <div id="photo-strip" class="photo-strip" aria-label="Photo library"></div>
+      <button id="fill-all-button" type="button" class="ghost-button">One photo fills all panels</button>
+    </section>
+
+    <section class="control-group" aria-labelledby="layout-heading">
+      <h2 id="layout-heading">Layout &amp; size</h2>
+      <label>Layout <select id="layout-select"></select></label>
+      <label>Export size <select id="size-select"></select></label>
+      <p id="panel-info" class="panel-info" role="status"></p>
+      <label>Panel zoom <input id="zoom-range" type="range" min="1" max="3" step="0.01" value="1"></label>
+      <button id="reset-crop-button" type="button" class="ghost-button">Reset panel crop</button>
+    </section>
+
+    <section class="control-group" aria-labelledby="grade-heading">
+      <h2 id="grade-heading">Colour grade</h2>
+      <label>Grade <select id="grade-select"></select></label>
+      <label>Intensity <input id="intensity-range" type="range" min="0" max="100" step="1" value="85"></label>
+      <label class="check"><input id="grain-toggle" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="vignette-toggle" type="checkbox" checked> Vignette</label>
+    </section>
+
+    <section class="control-group" aria-labelledby="lettering-heading">
+      <h2 id="lettering-heading">Lettering</h2>
+      <label>Title <input id="caption-input" type="text" maxlength="26" value="NEON COAST"></label>
+      <label>Script subtitle <input id="subtitle-input" type="text" maxlength="40" value="palm county heat"></label>
+      <label>Badge ribbon <input id="ribbon-input" type="text" maxlength="34" value="PALM COUNTY HEAT"></label>
+      <div class="stars-line">
+        <span>Heat</span>
+        <div id="stars-row" class="stars-row" role="group" aria-label="Heat stars">
+          <button type="button" data-stars="1" aria-label="1 star">★</button>
+          <button type="button" data-stars="2" aria-label="2 stars">★</button>
+          <button type="button" data-stars="3" aria-label="3 stars">★</button>
+          <button type="button" data-stars="4" aria-label="4 stars">★</button>
+          <button type="button" data-stars="5" aria-label="5 stars">★</button>
+        </div>
+      </div>
+      <label class="check"><input id="gradient-toggle" type="checkbox" checked> Sunset-gradient title fill</label>
+    </section>
+
+    <section class="control-group actions" aria-label="Actions">
+      <button id="export-button" type="button" class="export-button">Export cover PNG</button>
+      <div class="history-row">
+        <button id="undo-button" type="button" class="ghost-button" disabled>Undo</button>
+        <button id="redo-button" type="button" class="ghost-button" disabled>Redo</button>
+      </div>
+      <p id="status-line" class="status-line" role="status"></p>
+    </section>
+  </aside>
+
+  <section class="stage" aria-label="Live cover preview">
+    <canvas id="stage-canvas" width="1920" height="1080"></canvas>
+    <p class="stage-hint">Click a panel to select it · drag on the preview to pan its crop · scroll to zoom</p>
   </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
 </main>
 <script type="module" src="./src/main.js"></script>
 </body>

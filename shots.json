@@ -1,5 +1,1 @@
-[
-  { "name": "1-cover.jpg", "query": "?shot=cover&photo=pier&caption=Sunset%20Heist", "w": 1080, "h": 1080 },
-  { "name": "2-editor.jpg", "query": "?shot=editor&photo=boulevard&caption=Boulevard%20Queen", "w": 1280, "h": 720 },
-  { "name": "3-cover.jpg", "query": "?shot=cover&photo=boulevard&caption=Boulevard%20Queen", "w": 1080, "h": 1080 }
-]
+[{"h":720,"name":"1-cover.jpg","query":"?shot=cover&layout=grid9&size=1920x1080&caption=NEON%20COAST&sub=palm%20county%20heat&photos=rooftop,convertible,neon,speedboat,boulevard,pier&grade=sunset","w":1280},{"h":800,"name":"2-editor.jpg","query":"?shot=editor&layout=hero-three&caption=NEON%20COAST&sub=palm%20county%20heat&photos=convertible,rooftop,neon,speedboat&grade=sunset&select=1","w":1280},{"h":1280,"name":"3-portrait.jpg","query":"?shot=cover&layout=strip&size=1080x1350&caption=NEON%20COAST&sub=palm%20county%20heat&photos=convertible,neon,speedboat&grade=neon","w":1024},{"h":1024,"name":"4-square.jpg","query":"?shot=cover&layout=hero-three&size=1080x1080&caption=NEON%20COAST&sub=palm%20county%20heat&photos=rooftop,neon,convertible,pier&grade=golden","w":1024}]
